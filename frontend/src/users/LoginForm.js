@@ -20,7 +20,7 @@ function LoginForm() {
         e.preventDefault();
     
         try {
-            const response = await fetch(`http://localhost:5000/authentication/`, {
+            const response = await fetch('http://localhost:5000/authentication/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -29,20 +29,21 @@ function LoginForm() {
             });
     
             const data = await response.json();
-    
-        
-            if (response.ok) {  
+            
+            if (response.ok) {
                 setCurrentUser(data.user);
                 localStorage.setItem('token', data.token);
                 history.push(`/`);
             } else {
-                setErrorMessage(data.message);
+                // Display more detailed error message from the server
+                setErrorMessage(data.message || 'An error occurred');
             }
         } catch (error) {
             console.error('An error occurred:', error);
             setErrorMessage('An error occurred, please try again');
         }
     }
+    
      
   
     return (
