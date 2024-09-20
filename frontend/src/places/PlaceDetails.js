@@ -49,7 +49,7 @@ function PlaceDetails() {
 
 	async function createComment(commentAttributes) {
 		console.log('place', place)
-		const response = await fetch(`${process.env.REACT_APP_SERVER_URL}places${place.placeId}/comments`, {
+		const response = await fetch(`${process.env.REACT_APP_SERVER_URL}places/${place.placeId}/comments`, {
 			method: 'POST',
 			headers: {
 				// NEW

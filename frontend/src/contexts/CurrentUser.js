@@ -7,7 +7,7 @@ function CurrentUserProvider({ children }) {
   useEffect(() => {
     const getLoggedInUser = async () => {
       let response = await fetch(
-        "http://localhost:5000/authentication/profile",
+        `${process.env.REACT_APP_SERVER_URL}authentication/profile`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

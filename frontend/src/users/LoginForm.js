@@ -20,7 +20,7 @@ function LoginForm() {
         e.preventDefault();
     
         try {
-            const response = await fetch('http://localhost:5000/authentication/', {
+            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}authentication/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
